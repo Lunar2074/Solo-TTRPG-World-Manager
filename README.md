@@ -1,0 +1,1 @@
+# Solo-TTRPG-World-Manager
