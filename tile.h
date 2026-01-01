@@ -12,14 +12,11 @@ public:
     std::string biome_type;
     PointOfInterest Point;
 
-    Tile(int x, int y, std::string z, std::string q, std::string w, std::string t, int e){
+    Tile(int x, int y, std::string biome, PointOfInterest poi){
         location_x = x;
         location_y = y; 
-        biome_type = z;
-        Point.name = q;
-        Point.monsters1 = w;
-        Point.monsters2 = t;
-        Point.pointType = e; 
+        biome_type = biome;
+        Point = poi;
 
     }
 };

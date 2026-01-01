@@ -8,6 +8,14 @@ class PointOfInterest {
         std::string monsters1;
         std::string monsters2;
         int pointType;
+
+        PointOfInterest(){
+            name = "None";
+            monsters1 = "None";
+            monsters2 = "None";
+            pointType = 0;
+        }
+
         PointOfInterest(std::string q, std::string w, std::string t, int e){
             name = q;
             monsters1 = w;
