@@ -1,6 +1,7 @@
-#ifndef POINTSOFINTEREST.H
+#ifndef POINTSOFINTEREST_H
 #include <string>
 #include <iostream>
+#include <vector>
 
 class PointOfInterest {
     public: 
@@ -25,4 +26,8 @@ class PointOfInterest {
 };
 
 
-#endif // POINTSOFINTEREST.H
+std::string generateName();
+std::string generateMonsters();
+void generatePointOfInterest(PointOfInterest &poi);
+
+#endif // POINTSOFINTEREST_H

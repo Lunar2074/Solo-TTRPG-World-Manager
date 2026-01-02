@@ -21,4 +21,6 @@ public:
     }
 };
 
+void generateTile(Tile &tile);
+
 #endif // TILE_H
