@@ -1,5 +1,9 @@
 #include "tile.h"
 #include <cstdlib>
+#include <ctime>
+
+
+
 
 std::string generateBiome(){
     std::vector<std::string> biomes = {"Grass", "Desert", "Snow", "Forest", "Swamp"};
@@ -15,7 +19,7 @@ void generateTile(Tile &tile){
 
 std::string getBiomeColor(std::string biome) {
     if (biome == "Grass") return "\033[32m";   // Green
-    if (biome == "Forest") return "\033[32m";  // Green
+    if (biome == "Forest") return "\033[92m";  // Green
     if (biome == "Desert") return "\033[33m";  // Yellow
     if (biome == "Snow") return "\033[37m";    // White
     if (biome == "Swamp") return "\033[35m";   // Magenta
@@ -24,23 +28,18 @@ std::string getBiomeColor(std::string biome) {
 }
 
 void generateRivers(std::vector<std::vector<Tile>> &tileMap) {
-    tileMap[0][rand() % tileMap[0].size()].biome_type = "River";
+    int random_y = rand() % tileMap.size();
+    tileMap[0][random_y].biome_type = "River";
+
     for (size_t i = 1; i < tileMap.size(); ++i) {
-        int prevRiverX = -1;
-        for (size_t j = 0; j < tileMap[i - 1].size(); ++j) {
-            if (tileMap[i - 1][j].biome_type == "River") {
-                prevRiverX = j;
-                break;
-            }
-        }
-        int riverX = prevRiverX + (rand() % 3 - 1); // Move left, stay, or move right
-        if (riverX < 0) riverX = 0;
-        if (riverX >= tileMap[i].size()) riverX = tileMap[i].size() - 1;
-        tileMap[i][riverX].biome_type = "River";
+        int river_var = -1 + (rand() % 3);
+        random_y += river_var;
+        tileMap[0+i][random_y].biome_type = "River";
     }
 }
 
 std::vector<std::vector<Tile>> generateTileMap(int width, int height){
+    srand(time(0));
     std::vector<std::vector<Tile>> tileMap;
     std::string resetColor = "\033[0m";
 
@@ -53,8 +52,9 @@ std::vector<std::vector<Tile>> generateTileMap(int width, int height){
             row.push_back(tile);
         } std::cout << std::endl;
         tileMap.push_back(row);
-        generateRivers(tileMap);
+       
     }
+    generateRivers(tileMap);
     return tileMap;
 }
 
