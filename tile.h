@@ -4,6 +4,7 @@
 #define TILE_H
 #include <string>
 #include "PointsOfInterest.h"
+#include <vector>
 
 class Tile {
 public: 
@@ -11,6 +12,7 @@ public:
     int location_x;
     std::string biome_type;
     PointOfInterest Point;
+    
 
     Tile(int x, int y, std::string biome, PointOfInterest poi){
         location_x = x;
@@ -22,5 +24,7 @@ public:
 };
 
 void generateTile(Tile &tile);
+
+std::vector<std::vector<Tile>> generateTileMap(int width, int height);
 
 #endif // TILE_H

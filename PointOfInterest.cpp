@@ -23,3 +23,5 @@ void generatePointOfInterest(PointOfInterest &poi){
     poi.monsters2 = generateMonsters();
 }
 
+
+
