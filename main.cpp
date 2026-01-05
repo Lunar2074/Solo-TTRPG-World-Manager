@@ -33,6 +33,7 @@ int main() {
                 std::cin>>width>>height;
                 std::cout<< myMap[width][height].Point.name << std::endl;
                 std::cout<< myMap[width][height].Point.monsters1 << std::endl;
+                std::cout << myMap[width][height].biome_type << std::endl;
                 break;
             case exit_program:
                 exit = 1;

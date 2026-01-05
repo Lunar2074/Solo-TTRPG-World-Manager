@@ -32,4 +32,5 @@ std::string getBiomeColor(std::string biome);
 void generateRivers(std::vector<std::vector<Tile>> &tileMap);
 void displayTileMap(const std::vector<std::vector<Tile>> &tileMap);
 
+
 #endif // TILE_H

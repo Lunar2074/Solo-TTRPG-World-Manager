@@ -2,6 +2,7 @@
 #include <string>
 #include <iostream>
 #include <vector>
+#include <fstream>
 
 class PointOfInterest {
     public: 
@@ -29,5 +30,6 @@ class PointOfInterest {
 std::string generateName();
 std::string generateMonsters();
 void generatePointOfInterest(PointOfInterest &poi);
+std::vector<std::string> readPointsOfInterestFromFile(const std::string& filename);
 
 #endif // POINTSOFINTEREST_H
