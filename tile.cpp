@@ -24,6 +24,7 @@ std::string getBiomeColor(std::string biome) {
     if (biome == "Snow") return "\033[37m";    // White
     if (biome == "Swamp") return "\033[35m";   // Magenta
     if (biome == "River") return "\033[34m";   // Blue
+    if (biome == "Mountain") return "\033[90m"; // Grey
     return "\033[0m"; // Default/Reset
 }
 
@@ -35,6 +36,19 @@ void generateRivers(std::vector<std::vector<Tile>> &tileMap) {
         int river_var = -1 + (rand() % 3);
         random_y += river_var;
         tileMap[0+i][random_y].biome_type = "River";
+    }
+}
+
+void generateMountains(std::vector<std::vector<Tile>> &tileMap) {
+    int random_y = rand() % tileMap.size();
+    if (tileMap[0][random_y].biome_type != "River") {
+        tileMap[0][random_y].biome_type = "Mountain";
+    }
+    
+    for (size_t i = 1; i < tileMap.size(); ++i) {
+        int mountain_var = -1 + (rand() % 3);
+        random_y += mountain_var;
+        tileMap[0+i][random_y].biome_type = "Mountain";
     }
 }
 
@@ -55,6 +69,7 @@ std::vector<std::vector<Tile>> generateTileMap(int width, int height){
        
     }
     generateRivers(tileMap);
+    generateMountains(tileMap);
     return tileMap;
 }
 
