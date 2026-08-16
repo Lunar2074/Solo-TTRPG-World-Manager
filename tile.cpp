@@ -77,6 +77,14 @@ void displayTileMap(const std::vector<std::vector<Tile>> &tileMap) {
     std::string resetColor = "\033[0m";
     for (const auto& row : tileMap) {
         for (const auto& tile : row) {
+            if (tile.location_x < 10 && tile.location_y < 10){
+                std::cout << getBiomeColor(tile.biome_type) << "[0" << tile.location_x << ",0" << tile.location_y << "]" << resetColor;
+            } else if (tile.location_x < 10){
+                std::cout << getBiomeColor(tile.biome_type) << "[0" << tile.location_x << "," << tile.location_y << "]" << resetColor;
+            } else if (tile.location_y < 10){
+                std::cout << getBiomeColor(tile.biome_type) << "[" << tile.location_x << ",0" << tile.location_y << "]" << resetColor;
+            }
+            else
             std::cout << getBiomeColor(tile.biome_type) << "[" << tile.location_x << "," << tile.location_y << "]" << resetColor;
         }
         std::cout << std::endl;
